@@ -35,14 +35,17 @@ var sum = function(array) {
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
-    if (array.length === 0) {
-        return 0; 
-    }
-    if (array.length === 1) {
-        return array[0];
-    }
-    //
-    return array[0] + arraySum(array.slice(1));
+    var sum = 0;
+
+    array.forEach((item) => {
+        if (Array.isArray(item)) {
+           sum += arraySum(item);
+        }
+        else {
+            sum += item;
+        }
+    });
+    return sum; 
 };
 
 // 4. Check if a number is even.
@@ -295,11 +298,13 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+    
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str) {
+    
 };
 
 // 17. Reverse the order of an array
@@ -336,6 +341,7 @@ var rMap = function(array, callback) {
 // countKeysInObj(obj, 'r') // 1
 // countKeysInObj(obj, 'e') // 2
 var countKeysInObj = function(obj, key) {
+
 };
 
 // 23. Write a function that counts the number of times a value occurs in an object.
